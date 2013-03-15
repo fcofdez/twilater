@@ -13,6 +13,8 @@ group :assets do
 
   gem 'haml'
 
+  gem 'less-rails'
+
   gem 'twitter-bootstrap-rails'
 
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
