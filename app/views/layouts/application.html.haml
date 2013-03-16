@@ -9,8 +9,6 @@
     = csrf_meta_tags
     %meta{content: "width=device-width, initial-scale=1.0", name: "viewport"}/
   %body
-    .notice
-      = notice
     .navbar.navbar-fixed-top.navbar-inverse
       .navbar-inner
         .container
@@ -18,6 +16,9 @@
             %span.icon-bar
           %a.brand{href: "#"} twiLater
     .container
-      .row
-        = yield
-
+      .content
+        .row
+          .span12
+            = render 'layouts/messages'
+            = yield
+        %footer
