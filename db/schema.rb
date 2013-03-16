@@ -11,12 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130316015508) do
+ActiveRecord::Schema.define(version: 20130316023918) do
 
   create_table "users", force: true do |t|
     t.string "provider",            null: false
     t.string "uid",                 null: false
     t.string "name",     limit: 50
+    t.string "token"
+    t.string "secret"
   end
 
 end
