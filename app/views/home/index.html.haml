@@ -1,4 +1,4 @@
 %ul
   - @tweets.each do |tweet|
     %li
-      = tweet.attrs[:text] if tweet.attrs[:text] =~ /http:\/\//
+      = tweet.inspect if tweet.attrs[:text] =~ /http:\/\//

@@ -30,6 +30,8 @@ gem 'twitter'
 # Authentication
 gem 'omniauth-twitter'
 
+gem 'faraday_middleware'
+
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'
 
@@ -41,7 +43,11 @@ group :test do
   gem 'rspec-rails'
 end
 
+# Due to rails 4 new method
 gem 'protected_attributes'
+
+# Hashes like objects
+gem 'hashie'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
