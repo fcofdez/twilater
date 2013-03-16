@@ -1,6 +1,4 @@
-.hero-unit
-  %h1 Hello world!
-  %p You should check our fancy new twitter fav content system!
-  %p
-    %a.btn.btn-primary.btn-large{href: "/auth/twitter"} Login!
-
+%ul
+  - @tweets.each do |tweet|
+    %li
+      = tweet.attrs[:text] if tweet.attrs[:text] =~ /http:\/\//
