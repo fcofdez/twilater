@@ -14,4 +14,7 @@
 //= require jquery_ujs
 //= require twitter/bootstrap
 //= require turbolinks
+//= require bootstrap-modal
+//= require bootstrap-modalmanager
+//= require contents
 //= require_tree .
