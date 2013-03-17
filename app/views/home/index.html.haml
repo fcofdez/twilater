@@ -1,4 +1,7 @@
-%ul
+= form_tag home_path, method: :get, class: 'navbar-form pull-left' do
+  %p
+    = text_field_tag :query, params[:query], class: 'span2'
+    = submit_tag "Search", name: nil, class: 'btn'
+%p
 - @contents.each do |content|
-  %li
-    = content.title
+  .well= content.title

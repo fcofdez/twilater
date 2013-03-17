@@ -5,6 +5,6 @@ class HomeController < ApplicationController
   end
 
   def index
-    @contents = current_user.contents.select :title
+    @contents = Content.text_search(params[:query]).where(user: current_user).order('created_at DESC').select :title
   end
 end

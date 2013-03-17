@@ -30,6 +30,8 @@ gem 'jquery-rails'
 
 gem 'twitter'
 
+gem 'textacular', require: 'textacular/rails'
+
 # Authentication
 gem 'omniauth-twitter'
 
