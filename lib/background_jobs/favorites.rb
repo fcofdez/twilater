@@ -2,7 +2,7 @@ class BackgroundJobs::Favorites
 
   class << self
 
-    def run!
+    def update_contents!
       User.find_each do |user|
         process_favorites(user, user.favourite_tweets)
       end

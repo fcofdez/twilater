@@ -17,7 +17,6 @@ class User < ActiveRecord::Base
   end
 
   def has_contents?
-    puts !(contents.size == 0)
     !(contents.size == 0)
   end
 
