@@ -1,5 +1,12 @@
 class User < ActiveRecord::Base
+
+  # Relations
+  has_many :contents, -> { order 'created_at DESC' }
+
   attr_accessible :provider, :uid, :name, :secret, :token
+
+  # Due to Twitter api constraints
+  MAX_TWEETS = 100
 
   def self.create_with_omniauth(auth)
     User.create!(provider: auth[:provider],
@@ -9,11 +16,29 @@ class User < ActiveRecord::Base
                  name: auth[:info][:name])
   end
 
+  def has_contents?
+    !contents.empty?
+  end
+
+  def all_favourite_tweets
+    favorite_tweets count: MAX_TWEETS
+  end
+
+  def favourite_tweets_since id
+    favorite_tweets since_id: id
+  end
+
+  # Options could be
+  # count: Integer less or equal than 100
+  # since_id: will return all tweets since given id
+  def favourite_tweets(options = {})
+    twitter_client.favorites options
+  end
+  private
+
   def twitter_client
     @twitter ||= Twitter::Client.new(oauth_token: token, oauth_token_secret: secret)
   end
 
-  def favorite_tweets
-    twitter_client.favorites
-  end
+
 end

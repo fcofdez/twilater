@@ -11,14 +11,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130316023918) do
+ActiveRecord::Schema.define(version: 20130317125649) do
+
+  create_table "contents", force: true do |t|
+    t.text     "page_content"
+    t.string   "title"
+    t.integer  "user_id",                null: false
+    t.integer  "tweet_id",     limit: 8
+    t.boolean  "seen"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", force: true do |t|
-    t.string "provider",            null: false
-    t.string "uid",                 null: false
-    t.string "name",     limit: 50
-    t.string "token"
-    t.string "secret"
+    t.string  "provider",                  null: false
+    t.string  "uid",                       null: false
+    t.string  "name",           limit: 50
+    t.string  "token"
+    t.string  "secret"
+    t.integer "contents_count"
   end
 
 end

@@ -5,6 +5,6 @@ class HomeController < ApplicationController
   end
 
   def index
-    @tweets = current_user.favorite_tweets
+    @contents = current_user.contents
   end
 end

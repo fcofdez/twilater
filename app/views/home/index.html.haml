@@ -1,4 +1,4 @@
-%ul
-  - @tweets.each do |tweet|
-    %li
-      = tweet.inspect if tweet.attrs[:text] =~ /http:\/\//
+- @contents.each do |content|
+  %h1
+    = content.title
+  = raw content.page_content
