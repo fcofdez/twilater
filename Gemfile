@@ -40,6 +40,8 @@ gem 'jbuilder', '~> 1.0.1'
 
 gem 'whenever'
 
+gem 'kaminari'
+
 group :test do
   gem 'rspec'
   gem 'rspec-rails'

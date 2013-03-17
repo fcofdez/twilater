@@ -11,16 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130317125649) do
+ActiveRecord::Schema.define(version: 20130317154735) do
 
   create_table "contents", force: true do |t|
     t.text     "page_content"
     t.string   "title"
-    t.integer  "user_id",                null: false
+    t.integer  "user_id",                                null: false
     t.integer  "tweet_id",     limit: 8
-    t.boolean  "seen"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "read",                   default: false
   end
 
   create_table "users", force: true do |t|

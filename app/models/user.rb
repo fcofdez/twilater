@@ -17,6 +17,7 @@ class User < ActiveRecord::Base
   end
 
   def has_contents?
+    puts !(contents.size == 0)
     !(contents.size == 0)
   end
 
@@ -24,17 +25,16 @@ class User < ActiveRecord::Base
     twitter_client.favorites count: MAX_TWEETS
   end
 
+  # Options could be
+  # count: Integer less or equal than 100
+  # since_id: will return all tweets since given id
   def favourite_tweets_since id
     twitter_client.favorites since_id: id.to_s
   end
 
-
-  # Options could be
-  # count: Integer less or equal than 100
-  # since_id: will return all tweets since given id
-  def favourite_tweets(options = {})
+  def favourite_tweets
     return all_favourite_tweets unless has_contents?
-    favourite_tweets_since contents.last!.tweet_id
+    favourite_tweets_since contents.first!.tweet_id
   end
 
   private

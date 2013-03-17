@@ -5,7 +5,7 @@ class CreateContentsTable < ActiveRecord::Migration
       t.string :title
       t.integer :user_id, null: false
       t.integer :tweet_id
-      t.boolean :seen, deault: false
+      t.boolean :seen
       t.timestamps
     end
   end

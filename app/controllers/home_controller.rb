@@ -5,6 +5,6 @@ class HomeController < ApplicationController
   end
 
   def index
-    @contents = current_user.contents
+    @contents = current_user.contents.select :title
   end
 end
