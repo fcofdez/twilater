@@ -6,14 +6,13 @@
 #contents
   - @contents.each do |content|
     .well.success= link_to content.title, '#', content_id: content.id
-    .well.success 
-      %span.label.label-success= content.read
+    -#.well.success 
+      -#%span.label.label-success= content.read
 
-%a.btn{"data-toggle" => "modal", :href => "#full-width", :role => "button"} Launch demo modal
 
-#full-width{ class: "modal container hide fade" }
+
+#full-width{ :class => "modal container hide fade", :tabindex => "-1"}
   .modal-header
     %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", :type => "button"} ×
-    %h3= @contents.first.title
+    %h3
   .modal-body
-    = raw @contents.first.page_content
