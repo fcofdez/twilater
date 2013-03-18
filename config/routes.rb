@@ -6,7 +6,11 @@ Twilater::Application.routes.draw do
 
   root to: 'home#welcome'
 
-  resources :contents, only: [:index, :show]
+  resources :contents, only: [:index, :show] do
+    collection do
+      get :search
+    end
+  end
 
   get '/auth/:provider/callback' => 'sessions#create'
 

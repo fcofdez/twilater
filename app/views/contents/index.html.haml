@@ -1,13 +1,10 @@
 %h1 Favorite contents
-= form_tag contents_path, method: :get, class: 'form-search pull-left' do
+= form_tag search_contents_path, method: :get, remote: true, class: 'form-search pull-left' do
   %p
     = text_field_tag :query, params[:query], class: 'span2'
     = submit_tag "Search", name: nil, class: 'btn'
 #contents
-  - @contents.each do |content|
-    .well.success= link_to content.title, '#', content_id: content.id
-    -#.well.success 
-      -#%span.label.label-success= content.read
+  = render partial: "list"
 
 
 
