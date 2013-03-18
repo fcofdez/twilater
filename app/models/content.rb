@@ -1,5 +1,5 @@
 class Content < ActiveRecord::Base
-  attr_accessible :title, :page_content, :user_id, :tweet_id
+  attr_accessible :title, :page_content, :user_id, :tweet_id, :read
 
   #Relations
   belongs_to :user, counter_cache: true

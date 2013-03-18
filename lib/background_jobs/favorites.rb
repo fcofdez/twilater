@@ -9,7 +9,7 @@ class BackgroundJobs::Favorites
     end
 
     def process_favorites user, tweets
-      # We do reverse_each to insert in correct order contents
+      # We do reverse_each to insert contents in correct order
       tweets.reverse_each do |tweet|
         process_tweet user, tweet
       end
@@ -23,7 +23,7 @@ class BackgroundJobs::Favorites
                           page_content: parsed_content.content,
                           tweet_id: tweet.id,
                           user_id: user.id)
-        rescue Exception => e
+        rescue Faraday::Error => e
           Rails.logger.error e.message
         end
       end

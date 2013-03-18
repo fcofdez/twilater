@@ -13,6 +13,7 @@ class ContentsController < ApplicationController
 
   def show
     @content = Content.find(params[:id])
+    @content.update_attributes read: true
   end
 
   private

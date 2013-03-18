@@ -10,8 +10,8 @@
 
 
 window.bindContentClickEvents = ->
-  $('a[content_id]').click (event)->
-    loadContent $(this).attr('content_id')
+  $('a[data-content-id]').click (event)->
+    loadContent $(this).attr('data-content-id')
     event.preventDefault()
     return
   return
