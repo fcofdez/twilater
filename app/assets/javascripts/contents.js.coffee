@@ -1,4 +1,4 @@
-loadContent = (contentID) ->
+@loadContent = (contentID) ->
   $('body').modalmanager('loading')
 
   request = $.ajax(
@@ -8,24 +8,26 @@ loadContent = (contentID) ->
   request.done () ->
     $("#full-width").modal()
 
+
 loadMorePages = (page) ->
   request = $.ajax(
                 url: '/contents.js',
-                type: 'GET')
+                type: 'GET',
+                data: 
+                  page: page)
 
-
-$ ->
+window.bindContentClickEvents = ->
   $('a[content_id]').click (event)->
     loadContent $(this).attr('content_id')
     event.preventDefault()
+    return
+  return
 
-  waypointOpts = 
-    ofsset: -25,
-    triggerOnce: true,
-    context: '#contents',
-    onlyOnScroll: true
+$ ->
+  bindContentClickEvents()
 
-  $('#contents').waypoint( ->
-    loadMorePages 2
-    , waypointOpts)
+  infiniteScrollOpts =
+    onAfterPageLoad: bindContentClickEvents
+
+  $('#contents').waypoint('infinite', infiniteScrollOpts)
 

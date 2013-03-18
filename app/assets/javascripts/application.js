@@ -18,4 +18,5 @@
 //= require bootstrap-modalmanager
 //= require contents
 //= require waypoints.min
+//= require waypoints-infinite.min
 //= require_tree .
