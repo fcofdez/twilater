@@ -2,17 +2,22 @@ class ContentsController < ApplicationController
 
   respond_to :html, :js
 
+  before_filter :set_contents, only: [:index, :search]
+
   def index
-    @contents = Content.select(:title, :read, :id).text_search(params[:query]).where(user: current_user).order('created_at DESC').page(params[:page])
-    @next_page = params[:page].nil? ? 2 : params[:page].to_i + 1
+    @next_page = @contents.current_page + 1
   end
 
   def search
-    @contents = Content.text_search(params[:query]).select(:title, :read, :id).where(user: current_user).order('created_at DESC').page(params[:page])
   end
 
   def show
     @content = Content.find(params[:id])
   end
 
+  private
+
+  def set_contents
+    @contents = Content.text_search(params[:query]).select(:title, :read, :id).where(user: current_user).order('created_at DESC').page(params[:page])
+  end
 end
