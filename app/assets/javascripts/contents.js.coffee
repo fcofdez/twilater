@@ -9,13 +9,6 @@
     $("#full-width").modal()
 
 
-loadMorePages = (page) ->
-  request = $.ajax(
-                url: '/contents.js',
-                type: 'GET',
-                data: 
-                  page: page)
-
 window.bindContentClickEvents = ->
   $('a[content_id]').click (event)->
     loadContent $(this).attr('content_id')
