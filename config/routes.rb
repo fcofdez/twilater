@@ -7,6 +7,8 @@ Twilater::Application.routes.draw do
   root to: 'home#welcome'
 
   resources :contents, only: [:index, :show] do
+    get 'page/:page', action: :index, on: :collection, as: :page
+
     collection do
       get :search
     end

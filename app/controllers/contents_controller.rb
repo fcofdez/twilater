@@ -5,8 +5,7 @@ class ContentsController < ApplicationController
   before_filter :set_contents, only: [:index, :search]
 
   def index
-    #@next_page = @contents.current_page + 1
-    @next_page = 1
+    @next_page = @contents.current_page + 1
   end
 
   def search
@@ -20,7 +19,7 @@ class ContentsController < ApplicationController
   private
 
   def set_contents
-    @contents = []
+    @contents = current_user.contents.order('created_at DESC').page(params[:page])
     #@contents = Content.text_search(params[:query]).select(:title, :read, :id).where(user: current_user).order('created_at DESC').page(params[:page])
   end
 end

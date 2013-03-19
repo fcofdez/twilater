@@ -2,7 +2,7 @@ class Identity < ActiveRecord::Base
 
   # Relations
   belongs_to :user
-  has_many :contents
+  has_many :contents, ->{ order "created_at DESC" }
 
   # Due to Twitter api constraints
   MAX_TWEETS = 100

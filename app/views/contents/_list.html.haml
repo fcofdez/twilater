@@ -1,4 +1,5 @@
 - @contents.each do |content|
   .well.success.infinite-item
     = link_to content.title, '#', "data-content-id" => content.id
+    = raw content.page_content
     %span.label.label-success= "To read!" unless content.read

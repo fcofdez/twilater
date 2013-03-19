@@ -6,7 +6,7 @@
 #contents
   = render partial: "list"
 
-= link_to "More content", contents_path(page: @next_page), class: 'infinite-more-link'
+= link_to "More content", page_contents_path(page: @next_page), class: 'infinite-more-link'
 
 #full-width{ :class => "modal container hide fade", :tabindex => "-1"}
   .modal-header
