@@ -16,7 +16,7 @@
             %span.icon-bar
           %a.brand{href: "#"} twiLater
           %span{ class: "pull-rigth" }
-            = current_user.name if user_signed_in?
+            -#= current_user.name if user_signed_in?
           = link_to "Sign out", signout_path, class: "btn pull-right", method: :delete if user_signed_in?
     .container
       .content

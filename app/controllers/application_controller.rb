@@ -18,11 +18,16 @@ class ApplicationController < ActionController::Base
   end
 
   def user_signed_in?
-    current_user.present?
+    !!current_user
   end
 
   # Checks if user is logged
   def authenticate_user!
     redirect_to root_url, :alert => 'You need to sign in for access to this page.' if !current_user
+  end
+
+  def current_user=(user)
+    @current_user = user
+    session[:user_id] = user.nil? ? user : user.id
   end
 end

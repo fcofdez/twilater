@@ -11,24 +11,30 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130317175309) do
+ActiveRecord::Schema.define(version: 20130319210926) do
 
   create_table "contents", force: true do |t|
     t.text     "page_content"
     t.string   "title"
-    t.integer  "user_id",                                null: false
+    t.integer  "identity_id",                            null: false
     t.integer  "tweet_id",     limit: 8
     t.datetime "created_at"
     t.datetime "updated_at"
     t.boolean  "read",                   default: false
   end
 
-  create_table "users", force: true do |t|
-    t.string  "provider",                  null: false
-    t.string  "uid",                       null: false
-    t.string  "name",           limit: 50
+  create_table "identities", force: true do |t|
+    t.string  "uid"
+    t.string  "provider"
+    t.string  "nickname"
     t.string  "token"
     t.string  "secret"
+    t.integer "user_id"
+  end
+
+  add_index "identities", ["user_id"], name: "index_identities_on_user_id"
+
+  create_table "users", force: true do |t|
     t.integer "contents_count"
   end
 
