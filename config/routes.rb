@@ -12,6 +12,8 @@ Twilater::Application.routes.draw do
     end
   end
 
+  resources :identities, only: :index
+
   get '/auth/:provider/callback' => 'sessions#create'
 
   get '/auth/failure' => 'sessions#failure'

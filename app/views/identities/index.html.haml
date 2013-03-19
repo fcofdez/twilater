@@ -1,0 +1,12 @@
+%h1 Twitter associated accounts
+= link_to "Associante new twitter account", "/auth/twitter"
+%table.table.table-striped
+  %thead
+    %tr
+      %th nickname
+      %th Contents
+  %tbody
+    - @identities.each do |identity|
+      %tr
+        %td= "@#{identity.nickname}"
+        %td= identity.contents.size
