@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130320111020) do
+ActiveRecord::Schema.define(version: 20130320142746) do
 
   create_table "contents", force: true do |t|
     t.text     "page_content"
@@ -23,6 +23,8 @@ ActiveRecord::Schema.define(version: 20130320111020) do
     t.boolean  "read",                   default: false
     t.tsvector "tsv"
   end
+
+  add_index "contents", ["tsv"], name: "idx_contents"
 
   create_table "identities", force: true do |t|
     t.string  "uid"
