@@ -41,7 +41,7 @@ module PostgresqlFTS
       fields_query = []
 
       columns_searchables.each do |field|
-        fields_query << "to_tsvector('english', #{field}) @@ plainto_tsquery('english', :q::text)"
+        fields_query << "tsv @@ plainto_tsquery('english', :q::text)"
       end
 
       where(fields_query.join(" OR "), q: query).order("#{rank_fields(query)} desc")
