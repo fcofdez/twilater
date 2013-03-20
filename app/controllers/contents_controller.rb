@@ -19,6 +19,6 @@ class ContentsController < ApplicationController
   private
 
   def set_contents
-    @contents = Content.search(params[:query]).joins(:identity).where(identities: {user_id: current_user.id}).order('created_at DESC').page(params[:page])
+    @contents = Content.search(params[:query]).select("contents.id", :title, :read).joins(:identity).where(identities: {user_id: current_user.id}).order('created_at DESC').page(params[:page])
   end
 end
