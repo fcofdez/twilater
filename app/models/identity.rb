@@ -7,7 +7,7 @@ class Identity < ActiveRecord::Base
   # Due to Twitter api constraints
   MAX_TWEETS = 100
 
-  attr_accessible :provider, :uid, :nickname, :secret, :token
+  attr_accessible :provider, :uid, :nickname, :secret, :token, :user_id
 
   def self.find_with_omniauth(auth)
     find_by_provider_and_uid(auth['provider'], auth['uid'])
