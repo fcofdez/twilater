@@ -7,6 +7,11 @@ class Content < ActiveRecord::Base
   paginates_per 10
 
   def self.text_search(query)
-    query.present? ? search(query) : all
+    rank = <<-RANK
+           ts_rank(to_tsvector(title), plainto_tsquery(#{sanitize(query)})) +
+           ts_rank(to_tsvector(page_content), plainto_tsquery(#{sanitize(query)}))
+    RANK
+    where("to_tsvector('english', title) @@ :q or to_tsvector('english', page_content) @@ :q", q: query).order("#{rank} desc")
+    #query.present? ? search(query) : all
   end
 end
