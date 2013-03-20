@@ -1,4 +1,11 @@
-- @contents.each do |content|
-  .well.success.infinite-item
-    = link_to content.title, '#', "data-content-id" => content.id
-    %span.label.label-success= "To read!" unless content.read
+.row
+  - @contents.each_slice(2) do |contents_slice|
+    .span12
+      %ul.thumbnails.infinite-item
+        - contents_slice.each do |content|
+          %li.span6
+            .thumbnail
+              .caption
+                = link_to content.title, '#', "data-content-id" => content.id
+                %span.label.label-success= "To read!" unless content.read
+                = raw content.page_content

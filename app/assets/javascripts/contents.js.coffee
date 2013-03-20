@@ -22,5 +22,5 @@ $ ->
   infiniteScrollOpts =
     onAfterPageLoad: bindContentClickEvents
 
-  $('#contents').waypoint('infinite', infiniteScrollOpts)
+  $('#contents .row').waypoint('infinite', infiniteScrollOpts)
 
