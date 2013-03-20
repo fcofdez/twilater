@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130319210926) do
+ActiveRecord::Schema.define(version: 20130320002039) do
 
   create_table "contents", force: true do |t|
     t.text     "page_content"
@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(version: 20130319210926) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.boolean  "read",                   default: false
+    t.tsvector "tsv"
   end
 
   create_table "identities", force: true do |t|
