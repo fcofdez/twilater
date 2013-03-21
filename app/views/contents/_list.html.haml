@@ -1,9 +1,9 @@
 .row
   - @contents.each_slice(2) do |contents_slice|
-    .span12
-      %ul.thumbnails.infinite-item
+    .span12.infinite-item
+      %ul.thumbnails
         - contents_slice.each do |content|
-          %li.span6
+          %li.span5
             .thumbnail
               .caption
                 = link_to content.title, '#', "data-content-id" => content.id

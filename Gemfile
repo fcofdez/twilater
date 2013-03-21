@@ -62,5 +62,3 @@ gem 'protected_attributes'
 # Hashes like objects
 gem 'hashie'
 
-# Authorization
-gem 'cancan'

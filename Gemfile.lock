@@ -30,7 +30,6 @@ GEM
     bootstrap-modal-rails (2.1)
       railties (>= 3.1)
     builder (3.1.4)
-    cancan (1.6.9)
     chronic (0.9.1)
     coffee-rails (4.0.0.beta1)
       coffee-script (>= 2.2.0)
@@ -175,7 +174,6 @@ PLATFORMS
 
 DEPENDENCIES
   bootstrap-modal-rails
-  cancan
   coffee-rails (~> 4.0.0.beta1)
   faraday_middleware
   haml

@@ -16,11 +16,16 @@ window.bindContentClickEvents = ->
     return
   return
 
-$ ->
-  bindContentClickEvents()
-
+bindInifiteScrollEvents = ->
   infiniteScrollOpts =
     onAfterPageLoad: bindContentClickEvents
 
   $('#contents .row').waypoint('infinite', infiniteScrollOpts)
 
+$ ->
+  bindContentClickEvents()
+  bindInifiteScrollEvents()
+
+#Due to turbolink gem
+$(document).on('page:load', bindContentClickEvents)
+$(document).on('page:load', bindInifiteScrollEvents)
