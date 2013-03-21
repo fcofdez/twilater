@@ -4,8 +4,9 @@
       %ul.thumbnails
         - contents_slice.each do |content|
           %li.span5
-            .thumbnail
+            .thumbnail{ "data-content-id" => content.id}
               .caption
-                = link_to content.title, '#', "data-content-id" => content.id
+                %p.lead 
+                  %strong= content.title
                 %span.label.label-success= "To read!" unless content.read
                 = raw content.page_content
